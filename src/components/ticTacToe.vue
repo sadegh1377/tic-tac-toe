@@ -105,28 +105,25 @@ export default {
       }
       if (this.playerTurn === 0) {
         this.table[x][y] = 'O'
-        if (this.detectTie()) {
-          this.winner = "Tie"
-          return;
-        }
         this.playerTurn++
         if (this.playerHas3InARow('O')) {
           this.playerOneWins++
           this.winner = "One"
+        } else {
+          if (this.detectTie()) {
+            this.winner = "Tie"
+          }
         }
       } else {
         this.table[x][y] = 'X'
-        if (this.detectTie()) {
-          this.winner = "Tie"
-          return;
-        }
         this.playerTurn--
-        if (this.detectTie()) {
-          this.winner = "Tie"
-        }
         if (this.playerHas3InARow('X')) {
           this.playerTwoWins++
           this.winner = "Two"
+        } else {
+          if (this.detectTie()) {
+            this.winner = "Tie"
+          }
         }
       }
     },
