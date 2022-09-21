@@ -82,6 +82,7 @@
 <script>
 export default {
   name: "ticTacToe",
+  mixins: [],
   data() {
     return {
       playerTurn: 0,
