@@ -184,7 +184,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .mainContainer {
   position: relative;
   height: 300px;

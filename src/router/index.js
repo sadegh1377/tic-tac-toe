@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import TicTacToe from "@/components/TicTacToe";
+import UltimateTicTacToe from "@/components/UltimateTicTacToe";
 
 Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/',
+        path: '/TicTacToe',
         name: 'TicTacToe',
         component: TicTacToe
+    },
+    {
+        path: '/',
+        name: 'UltimateTicTacToe',
+        component: UltimateTicTacToe
     }
 ]
 
