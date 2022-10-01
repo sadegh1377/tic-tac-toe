@@ -4,7 +4,7 @@
       <div class="mainContainer row p-0" v-for="(i,index1) in 9" :key="index1">
         <!--      first row    -->
         <div class="cellContainer border " v-for="(j,index2) in 9" :key="index2" @click="addMark(i,j)">
-          <div class="opponent opponentOne mt-4 text-center">
+          <div class="opponent opponentOne mt-2 text-center">
             X
           </div>
         </div>
