@@ -1,6 +1,6 @@
 <template>
     <div id="HomeView">
-        <div class="container border rounded my-5 background">
+        <div class="container border rounded pb-5 my-5 background shadow">
             <div class="d-flex justify-content-center">
                 <div class="card mx-5 my-5" style="width: 18rem;">
                     <img src="../assets/ticTacToe.png" class="card-img-top cardImg" alt="...">
