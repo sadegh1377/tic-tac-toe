@@ -10,22 +10,41 @@ const routes = [
     {
         path: '/',
         name: 'Home',
-        component: HomeView
+        component: HomeView,
+        meta: {
+            title: 'Tic tac toe',
+        }
     },
     {
         path: '/ticTacToe',
         name: 'TicTacToe',
-        component: TicTacToe
+        component: TicTacToe,
+        meta: {
+            title: 'Classic Tic tac toe',
+        }
     },
     {
         path: '/ultimate-ticTacToe',
         name: 'UltimateTicTacToe',
-        component: UltimateTicTacToe
+        component: UltimateTicTacToe,
+        meta: {
+            title: 'Ultimate Tic tac toe',
+        }
     }
 ]
 
 const router = new VueRouter({
+    mode: 'history',
     routes
 })
+router.beforeEach((to, from, next) => {
+    const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title);
 
+    // Find the nearest route element with meta tags.
+    const nearestWithMeta = to.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
+
+    // If a route with a title was found, set the document (page) title to that value.
+    if (nearestWithTitle) document.title = nearestWithTitle.meta.title;
+    if (!nearestWithMeta) return next();
+})
 export default router
