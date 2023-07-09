@@ -2,6 +2,8 @@
 ```
 a project just for fun
 ```
+## [Live Demo](https://tictactoegame9877.netlify.app/)
+
 ## Project setup
 ```
 npm install
