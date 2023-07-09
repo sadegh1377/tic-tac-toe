@@ -597,7 +597,7 @@ export default {
 
 .winnerOverlay {
     position: absolute;
-    background-color: rgba(249, 249, 249, 0.7);
+    background-color: rgba(249, 249, 249, 0.8);
     top: 0;
     left: 0;
     width: 150px;
