@@ -1,5 +1,7 @@
 # tic-tac-toe
-
+```
+a project just for fun
+```
 ## Project setup
 ```
 npm install
