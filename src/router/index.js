@@ -30,7 +30,15 @@ const routes = [
         meta: {
             title: 'Ultimate Tic tac toe',
         }
-    }
+    },
+    {
+        path: '*',
+        name: 'PageNotFound',
+        component: () => import('../views/PageNotFound.vue'),
+        meta: {
+            title: '404 Page not fount',
+        }
+    },
 ]
 
 const router = new VueRouter({
