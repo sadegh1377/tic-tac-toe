@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+    <div id="app">
+        <transition name="fade" mode="out-in">
+            <router-view/>
+        </transition>
+        <SemiFooter/>
+    </div>
 </template>
+
+<script setup>
+import SemiFooter from "@/components/SemiFooter.vue";
+</script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
 }
 
-nav {
-  padding: 30px;
+.fade-enter-active {
+    transition: opacity 0.2s ease-in;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.fade-leave-active {
+    transition: opacity 0.2s ease-out;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.fade-enter, .fade-leave-to {
+    opacity: 0;
 }
 </style>
