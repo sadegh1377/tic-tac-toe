@@ -6,6 +6,17 @@
                     <img src="../assets/ticTacToe.png" class="card-img-top cardImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tic tac toe</h5>
+                        <p class="card-text">A classic Player vs CPU Tic tac toe.</p>
+                        <router-link to="ai-ticTacToe" class="btn btn-primary px-5">Play</router-link>
+                        <button class="btn btn-outline-info ms-4"
+                                @click="showRulesDiv('classic','rules')">Rules
+                        </button>
+                    </div>
+                </div>
+                <div class="card mx-5 my-5" style="width: 18rem;">
+                    <img src="../assets/ticTacToe.png" class="card-img-top cardImg" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Tic tac toe</h5>
                         <p class="card-text">A classic Player vs Player Tic tac toe.</p>
                         <router-link to="ticTacToe" class="btn btn-primary px-5">Play</router-link>
                         <button class="btn btn-outline-info ms-4"
