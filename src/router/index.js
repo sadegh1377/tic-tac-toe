@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import TicTacToe from "@/components/TicTacToe";
 import UltimateTicTacToe from "@/components/UltimateTicTacToe";
+import AiTicTacToe from "@/components/AiTicTacToe.vue";
 import HomeView from "@/views/HomeView.vue";
 
 Vue.use(VueRouter)
@@ -19,6 +20,14 @@ const routes = [
         path: '/ticTacToe',
         name: 'TicTacToe',
         component: TicTacToe,
+        meta: {
+            title: 'Classic Tic tac toe',
+        }
+    },
+    {
+        path: '/ai-ticTacToe',
+        name: 'AiTicTacToe',
+        component: AiTicTacToe,
         meta: {
             title: 'Classic Tic tac toe',
         }
