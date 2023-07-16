@@ -2,13 +2,13 @@
     <div class="container mx-auto row py-5">
         <div class="col-6">
             <div class="border py-2" :class="{'playersTurn':playerTurn === 0}">
-                Opponent One : O
+                {{ opponentOne }}: O
             </div>
             <div class="mt-4">{{ playerOneWins }}</div>
         </div>
         <div class="col-6">
             <div class="border py-2" :class="{'playersTurn':playerTurn === 1}">
-                Opponent Two : X
+                {{ opponentTwo }}: X
             </div>
             <div class="mt-4">{{ playerTwoWins }}</div>
         </div>
@@ -30,6 +30,14 @@ export default {
         },
         playerTwoWins: {
             type: Number,
+            require: true
+        },
+        opponentOne: {
+            type: String,
+            require: true
+        },
+        opponentTwo: {
+            type: String,
             require: true
         }
     }

@@ -61,7 +61,11 @@
                 <button class="btn btn-outline-info mt-5" @click="resetAll">Play Again?</button>
             </div>
         </div>
-        <AllScores :playerTurn="playerTurn" :playerOneWins="playerOneWins" :playerTwoWins="playerTwoWins"/>
+        <AllScores :playerTurn="playerTurn"
+                   :playerOneWins="playerOneWins"
+                   :playerTwoWins="playerTwoWins"
+                   opponentOne="Opponent One"
+                   opponentTwo="Opponent Twe"/>
     </div>
 </template>
 
