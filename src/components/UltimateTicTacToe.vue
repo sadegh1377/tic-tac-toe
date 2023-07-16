@@ -101,7 +101,11 @@
                 </h1>
             </div>
         </tic-tac-toe2>
-        <AllScores :playerTurn="playerTurn" :playerOneWins="playerOneWins" :playerTwoWins="playerTwoWins"/>
+        <AllScores :playerTurn="playerTurn"
+                   :playerOneWins="playerOneWins"
+                   :playerTwoWins="playerTwoWins"
+                   opponentOne="Opponent One"
+                   opponentTwo="Opponent Twe"/>
     </div>
 </template>
 
@@ -305,7 +309,7 @@ export default {
                 console.log("This Is Player Twe")
                 if (this.playerHas3InARow(this.outerTable, "X")) {
                     console.log("player Twe Won")
-                    this.playerOneWins++
+                    this.playerTwoWins++
                     this.winner = "Two"
                 } else {
                     if (this.detectTie()) {
