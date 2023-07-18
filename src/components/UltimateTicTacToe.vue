@@ -124,7 +124,6 @@ export default {
             playerTurn: 0,
             playerOneWins: 0,
             playerTwoWins: 0,
-            winnerOfInnerTableMark: [],
             outerTable: [
                 //  first row
                 ["", "", ""],
@@ -221,7 +220,7 @@ export default {
                     this.winInInnerTable(tableNum, this.table1[x][y])
                     this.checkOuterWinner(x, y)
                 }
-                this.whichTableToPlay(x, y, this.table1, tableNum)
+                this.whichTableToPlay(x, y)
             } else if (tableNum === 2) {
                 const newRow = this.addMark(x, y, this.table2)
                 this.$set(this.table2, x, newRow)
@@ -230,7 +229,7 @@ export default {
                     this.winInInnerTable(tableNum, this.table2[x][y])
                     this.checkOuterWinner(x, y)
                 }
-                this.whichTableToPlay(x, y, this.table2, tableNum)
+                this.whichTableToPlay(x, y)
             } else if (tableNum === 3) {
                 const newRow = this.addMark(x, y, this.table3)
                 this.$set(this.table3, x, newRow)
@@ -238,7 +237,7 @@ export default {
                     this.winInInnerTable(tableNum, this.table3[x][y])
                     this.checkOuterWinner(x, y)
                 }
-                this.whichTableToPlay(x, y, this.table3, tableNum)
+                this.whichTableToPlay(x, y)
             } else if (tableNum === 4) {
                 const newRow = this.addMark(x, y, this.table4)
                 this.$set(this.table4, x, newRow)
@@ -246,7 +245,7 @@ export default {
                     this.winInInnerTable(tableNum, this.table4[x][y])
                     this.checkOuterWinner(x, y)
                 }
-                this.whichTableToPlay(x, y, this.table4, tableNum)
+                this.whichTableToPlay(x, y)
             } else if (tableNum === 5) {
                 const newRow = this.addMark(x, y, this.table5)
                 this.$set(this.table5, x, newRow)
@@ -254,7 +253,7 @@ export default {
                     this.winInInnerTable(tableNum, this.table5[x][y])
                     this.checkOuterWinner(x, y)
                 }
-                this.whichTableToPlay(x, y, this.table5, tableNum)
+                this.whichTableToPlay(x, y)
             } else if (tableNum === 6) {
                 const newRow = this.addMark(x, y, this.table6)
                 this.$set(this.table6, x, newRow)
@@ -262,7 +261,7 @@ export default {
                     this.winInInnerTable(tableNum, this.table6[x][y])
                     this.checkOuterWinner(x, y)
                 }
-                this.whichTableToPlay(x, y, this.table6, tableNum)
+                this.whichTableToPlay(x, y)
             } else if (tableNum === 7) {
                 const newRow = this.addMark(x, y, this.table7)
                 this.$set(this.table7, x, newRow)
@@ -270,7 +269,7 @@ export default {
                     this.winInInnerTable(tableNum, this.table7[x][y])
                     this.checkOuterWinner(x, y)
                 }
-                this.whichTableToPlay(x, y, this.table7, tableNum)
+                this.whichTableToPlay(x, y)
             } else if (tableNum === 8) {
                 const newRow = this.addMark(x, y, this.table8)
                 this.$set(this.table8, x, newRow)
@@ -278,7 +277,7 @@ export default {
                     this.winInInnerTable(tableNum, this.table8[x][y])
                     this.checkOuterWinner(x, y)
                 }
-                this.whichTableToPlay(x, y, this.table8, tableNum)
+                this.whichTableToPlay(x, y)
             } else if (tableNum === 9) {
                 const newRow = this.addMark(x, y, this.table9)
                 this.$set(this.table9, x, newRow)
@@ -286,9 +285,7 @@ export default {
                     this.winInInnerTable(tableNum, this.table9[x][y])
                     this.checkOuterWinner(x, y)
                 }
-                this.whichTableToPlay(x, y, this.table9, tableNum)
-            } else {
-                return
+                this.whichTableToPlay(x, y)
             }
         },
         checkOuterWinner() {
@@ -349,36 +346,35 @@ export default {
             this.whichTableIsWin(tableNum, playerMark)
         },
         whichTableIsWin(tableNum, playerMark) {
-            if (tableNum === 1) {
-                this.outerTable[0][0] = playerMark
-                this.winnerOfInnerTableMark.push(playerMark)
-            } else if (tableNum === 2) {
-                this.outerTable[0][1] = playerMark
-                this.winnerOfInnerTableMark.push(playerMark)
-            } else if (tableNum === 3) {
-                this.outerTable[0][2] = playerMark
-                this.winnerOfInnerTableMark.push(playerMark)
-            } else if (tableNum === 4) {
-                this.outerTable[1][0] = playerMark
-                this.winnerOfInnerTableMark.push(playerMark)
-            } else if (tableNum === 5) {
-                this.outerTable[1][1] = playerMark
-                this.winnerOfInnerTableMark.push(playerMark)
-            } else if (tableNum === 6) {
-                this.outerTable[1][2] = playerMark
-                this.winnerOfInnerTableMark.push(playerMark)
-            } else if (tableNum === 7) {
-                this.outerTable[2][0] = playerMark
-                this.winnerOfInnerTableMark.push(playerMark)
-            } else if (tableNum === 8) {
-                this.outerTable[2][1] = playerMark
-                this.winnerOfInnerTableMark.push(playerMark)
-            } else if (tableNum === 9) {
-                this.outerTable[2][2] = playerMark
-                this.winnerOfInnerTableMark.push(playerMark)
+            switch (tableNum) {
+                case 1 :
+                    this.outerTable[0][0] = playerMark
+                    break
+                case 2:
+                    this.outerTable[0][1] = playerMark
+                    break
+                case 3:
+                    this.outerTable[0][2] = playerMark
+                    break
+                case 4:
+                    this.outerTable[1][0] = playerMark
+                    break
+                case 5:
+                    this.outerTable[1][1] = playerMark
+                    break
+                case 6:
+                    this.outerTable[1][2] = playerMark
+                    break
+                case 7:
+                    this.outerTable[2][0] = playerMark
+                    break
+                case 8:
+                    this.outerTable[2][1] = playerMark
+                    break
+                case 9:
+                    this.outerTable[2][2] = playerMark
+                    break
             }
-            // console.log(this.outerTable)
-            // console.log(this.winnerOfInnerTableMark)
         },
         whichTableToPlay(x, y) {
             // console.log(innerTable[x][y])
