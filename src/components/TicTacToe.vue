@@ -1,5 +1,5 @@
 <template>
-    <div id="TicTacToe" dir="ltr">
+    <div id="TicTacToe" class="mx-auto my-5 rounded" dir="ltr">
         <div class="mainContainer mx-auto mt-5 row">
             <!--   first row   -->
             <div class="cellContainer border" @click="addMark(0,0)">
@@ -178,6 +178,14 @@ export default {
 </script>
 
 <style scoped>
+#TicTacToe {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 80vw;
+    background-color: rgb(207, 207, 207,.4);
+}
+
 .mainContainer {
     position: relative;
     height: 300px;
@@ -221,10 +229,6 @@ export default {
     color: #ff1717 !important;
 }
 
-.playersTurn {
-    background-color: #25cb20;
-    color: #f9f9f9;
-}
 
 .winnerColor {
     color: #FFD700;
