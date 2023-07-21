@@ -1,111 +1,114 @@
 <template>
-    <div class="ultimateMainContainer mx-auto gap-3 row mt-5">
-        <!--  winner overlay  -->
-        <div class="outerWinnerOverlay" v-if="winner">
-            <div class="winnerText" v-if="winner === 'One'|| winner === 'Two'">
-                <h1 class="mt-5">Player
-                    <span class="winnerColor">{{ winner }}</span>
-                    won!!
-                </h1>
+    <div id="UltimateTicTacToe" class="mx-auto mt-3">
+        <div class="ultimateMainContainer mx-auto gap-3 row mt-3">
+            <!--  winner overlay  -->
+            <div class="outerWinnerOverlay" v-if="winner">
+                <div class="winnerText" v-if="winner === 'One'|| winner === 'Two'">
+                    <h1 class="mt-5">Player
+                        <span class="winnerColor">{{ winner }}</span>
+                        won!!
+                    </h1>
+                </div>
+                <h1 class="mt-5" v-if="winner === 'Tie'">{{ winner }}</h1>
+                <button class="btn btn-outline-info playAgainBtn" @click="playAgain">Play Again?</button>
             </div>
-            <h1 class="mt-5" v-if="winner === 'Tie'">{{ winner }}</h1>
-            <button class="btn btn-outline-info playAgainBtn" @click="playAgain">Play Again?</button>
+            <tic-tac-toe2 :inner-table="table1"
+                          :whichTableToPlay="tableNum"
+                          :tableNum="1"
+                          @addMark="selectTable">
+                <div class="winnerOverlay" v-if="outerTable[0][0] !== ''">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][0] === 'X'}">
+                        {{ outerTable[0][0] }}
+                    </h1>
+                </div>
+            </tic-tac-toe2>
+            <tic-tac-toe2 :inner-table="table2"
+                          :whichTableToPlay="tableNum"
+                          :tableNum="2"
+                          @addMark="selectTable">
+                <div class="winnerOverlay" v-if="outerTable[0][1] !== ''">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][1] === 'X'}">
+                        {{ outerTable[0][1] }}
+                    </h1>
+                </div>
+            </tic-tac-toe2>
+            <tic-tac-toe2 :inner-table="table3"
+                          :whichTableToPlay="tableNum"
+                          :tableNum="3"
+                          @addMark="selectTable">
+                <div class="winnerOverlay" v-if="outerTable[0][2] !== ''">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][2] === 'X'}">
+                        {{ outerTable[0][2] }}
+                    </h1>
+                </div>
+            </tic-tac-toe2>
+            <tic-tac-toe2 :inner-table="table4"
+                          :whichTableToPlay="tableNum"
+                          :tableNum="4"
+                          @addMark="selectTable">
+                <div class="winnerOverlay" v-if="outerTable[1][0] !== ''">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][0] === 'X'}">
+                        {{ outerTable[1][0] }}
+                    </h1>
+                </div>
+            </tic-tac-toe2>
+            <tic-tac-toe2 :inner-table="table5"
+                          :whichTableToPlay="tableNum"
+                          :tableNum="5"
+                          @addMark="selectTable">
+                <div class="winnerOverlay" v-if="outerTable[1][1] !== ''">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][1] === 'X'}">
+                        {{ outerTable[1][1] }}
+                    </h1>
+                </div>
+            </tic-tac-toe2>
+            <tic-tac-toe2 :inner-table="table6"
+                          :whichTableToPlay="tableNum"
+                          :tableNum="6"
+                          @addMark="selectTable">
+                <div class="winnerOverlay" v-if="outerTable[1][2] !== ''">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][2] === 'X'}">
+                        {{ outerTable[1][2] }}
+                    </h1>
+                </div>
+            </tic-tac-toe2>
+            <tic-tac-toe2 :inner-table="table7"
+                          :whichTableToPlay="tableNum"
+                          :tableNum="7"
+                          @addMark="selectTable">
+                <div class="winnerOverlay" v-if="outerTable[2][0] !== ''">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][0] === 'X'}">
+                        {{ outerTable[2][0] }}
+                    </h1>
+                </div>
+            </tic-tac-toe2>
+            <tic-tac-toe2 :inner-table="table8"
+                          :whichTableToPlay="tableNum"
+                          :tableNum="8"
+                          @addMark="selectTable">
+                <div class="winnerOverlay" v-if="outerTable[2][1] !== ''">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][1] === 'X'}">
+                        {{ outerTable[2][1] }}
+                    </h1>
+                </div>
+            </tic-tac-toe2>
+            <tic-tac-toe2 :inner-table="table9"
+                          :whichTableToPlay="tableNum"
+                          :tableNum="9"
+                          @addMark="selectTable">
+                <div class="winnerOverlay" v-if="outerTable[2][2] !== ''">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][2] === 'X'}">
+                        {{ outerTable[2][2] }}
+                    </h1>
+                </div>
+            </tic-tac-toe2>
+            <AllScores class="pt-3"
+                       :playerTurn="playerTurn"
+                       :playerOneWins="playerOneWins"
+                       :playerTwoWins="playerTwoWins"
+                       opponentOne="Opponent One"
+                       opponentTwo="Opponent Twe"/>
         </div>
-        <tic-tac-toe2 :inner-table="table1"
-                      :whichTableToPlay="tableNum"
-                      :tableNum="1"
-                      @addMark="selectTable">
-            <div class="winnerOverlay" v-if="outerTable[0][0] !== ''">
-                <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][0] === 'X'}">
-                    {{ outerTable[0][0] }}
-                </h1>
-            </div>
-        </tic-tac-toe2>
-        <tic-tac-toe2 :inner-table="table2"
-                      :whichTableToPlay="tableNum"
-                      :tableNum="2"
-                      @addMark="selectTable">
-            <div class="winnerOverlay" v-if="outerTable[0][1] !== ''">
-                <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][1] === 'X'}">
-                    {{ outerTable[0][1] }}
-                </h1>
-            </div>
-        </tic-tac-toe2>
-        <tic-tac-toe2 :inner-table="table3"
-                      :whichTableToPlay="tableNum"
-                      :tableNum="3"
-                      @addMark="selectTable">
-            <div class="winnerOverlay" v-if="outerTable[0][2] !== ''">
-                <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][2] === 'X'}">
-                    {{ outerTable[0][2] }}
-                </h1>
-            </div>
-        </tic-tac-toe2>
-        <tic-tac-toe2 :inner-table="table4"
-                      :whichTableToPlay="tableNum"
-                      :tableNum="4"
-                      @addMark="selectTable">
-            <div class="winnerOverlay" v-if="outerTable[1][0] !== ''">
-                <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][0] === 'X'}">
-                    {{ outerTable[1][0] }}
-                </h1>
-            </div>
-        </tic-tac-toe2>
-        <tic-tac-toe2 :inner-table="table5"
-                      :whichTableToPlay="tableNum"
-                      :tableNum="5"
-                      @addMark="selectTable">
-            <div class="winnerOverlay" v-if="outerTable[1][1] !== ''">
-                <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][1] === 'X'}">
-                    {{ outerTable[1][1] }}
-                </h1>
-            </div>
-        </tic-tac-toe2>
-        <tic-tac-toe2 :inner-table="table6"
-                      :whichTableToPlay="tableNum"
-                      :tableNum="6"
-                      @addMark="selectTable">
-            <div class="winnerOverlay" v-if="outerTable[1][2] !== ''">
-                <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][2] === 'X'}">
-                    {{ outerTable[1][2] }}
-                </h1>
-            </div>
-        </tic-tac-toe2>
-        <tic-tac-toe2 :inner-table="table7"
-                      :whichTableToPlay="tableNum"
-                      :tableNum="7"
-                      @addMark="selectTable">
-            <div class="winnerOverlay" v-if="outerTable[2][0] !== ''">
-                <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][0] === 'X'}">
-                    {{ outerTable[2][0] }}
-                </h1>
-            </div>
-        </tic-tac-toe2>
-        <tic-tac-toe2 :inner-table="table8"
-                      :whichTableToPlay="tableNum"
-                      :tableNum="8"
-                      @addMark="selectTable">
-            <div class="winnerOverlay" v-if="outerTable[2][1] !== ''">
-                <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][1] === 'X'}">
-                    {{ outerTable[2][1] }}
-                </h1>
-            </div>
-        </tic-tac-toe2>
-        <tic-tac-toe2 :inner-table="table9"
-                      :whichTableToPlay="tableNum"
-                      :tableNum="9"
-                      @addMark="selectTable">
-            <div class="winnerOverlay" v-if="outerTable[2][2] !== ''">
-                <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][2] === 'X'}">
-                    {{ outerTable[2][2] }}
-                </h1>
-            </div>
-        </tic-tac-toe2>
-        <AllScores :playerTurn="playerTurn"
-                   :playerOneWins="playerOneWins"
-                   :playerTwoWins="playerTwoWins"
-                   opponentOne="Opponent One"
-                   opponentTwo="Opponent Twe"/>
     </div>
 </template>
 
@@ -543,6 +546,14 @@ export default {
 </script>
 
 <style scoped>
+#UltimateTicTacToe {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 80vw;
+    height: 95vh;
+    background-color: rgb(185, 185, 185);
+}
 
 .ultimateMainContainer {
     width: 500px;
