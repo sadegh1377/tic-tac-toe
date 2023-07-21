@@ -1,9 +1,9 @@
 <template>
     <div id="HomeView">
-        <div class="container border rounded pb-5 my-5 background shadow">
-            <div class="d-flex justify-content-center">
-                <div class="card mx-5 my-5" style="width: 18rem;">
-                    <img src="../assets/ticTacToe.png" class="card-img-top cardImg" alt="...">
+        <div class="border rounded pb-5 my-5 mx-auto background shadow">
+            <div class="d-flex flex-column flex-lg-row flex-md-column flex-sm-column">
+                <div class="card mx-5 mx-sm-auto my-5" style="width: 18rem;">
+                    <img src="../assets/aiTictacToe.png" class="card-img-top cardImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tic tac toe</h5>
                         <p class="card-text">A classic Player vs CPU Tic tac toe.</p>
@@ -13,7 +13,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="card mx-5 my-5" style="width: 18rem;">
+                <div class="card mx-5 mx-sm-auto my-5" style="width: 18rem;">
                     <img src="../assets/ticTacToe.png" class="card-img-top cardImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tic tac toe</h5>
@@ -24,8 +24,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="card mx-5 my-5" style="width: 18rem;">
-                    <img src="../assets/ultimate-ticTacToe.png" class="card-img-top cardImg" alt="...">
+                <div class="card mx-5 mx-sm-auto my-5" style="width: 18rem;">
+                    <img src="../assets/ultimate.png" class="card-img-top cardImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Ultimate Tic tac toe</h5>
                         <p class="card-text">An Ultimate Player vs Player Tic tac toe.</p>
@@ -139,15 +139,24 @@ export default {
 </script>
 
 <style scoped>
+#HomeView{
+    height: 100vh;
+    //background-color: #0d86ff;
+}
+
 .cardImg {
     height: 200px !important;
     border-bottom: 1px #D2D2D2 solid;
-    object-fit: scale-down;
+    object-fit: fill;
     aspect-ratio: auto 100 / 100;
 }
 
 .background {
-    background-color: #f5f5f5;
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 80vw;
+    background-color: rgba(245, 245, 245, 0.79);
 }
 
 .description {
