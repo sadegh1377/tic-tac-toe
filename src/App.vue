@@ -17,6 +17,8 @@ import SemiFooter from "@/components/SemiFooter.vue";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+    height: 100vh;
+    background-image: url('assets/background.png');
 }
 
 .fade-enter-active {
