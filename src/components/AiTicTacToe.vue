@@ -1,5 +1,5 @@
 <template>
-    <div id="TicTacToe" dir="ltr">
+    <div id="aiTicTacToe" class="mx-auto my-5 rounded" dir="ltr">
         <div class="mainContainer mx-auto mt-5 row">
             <!--   first row   -->
             <div class="cellContainer border" @click="addMark(0,0)">
@@ -61,6 +61,8 @@
                 <h1 class="mt-5" v-if="winner === 'Draw'">{{ winner }}</h1>
                 <button class="btn btn-outline-info mt-5" @click="resetAll">Play Again?</button>
             </div>
+            <div class="blockOverlay" v-if="isAiTurn" title="It's CPU Turn">
+            </div>
         </div>
         <AllScores :playerTurn="playerTurn"
                    :playerOneWins="playerOneWins"
@@ -79,6 +81,7 @@ export default {
     mixins: [],
     data() {
         return {
+            isAiTurn: false,
             timeoutID: null,
             playerTurn: 0,
             playerOneWins: 0,
@@ -101,6 +104,7 @@ export default {
                 return
             }
             this.table[x][y] = 'O'
+            this.isAiTurn = true
             this.playerTurn++
             if (this.playerHas3InARow('O')) {
                 this.playerOneWins++
@@ -116,6 +120,7 @@ export default {
             this.timeoutID = setTimeout(() => {
                 this.table[aiChoice.bestI].splice(aiChoice.bestJ, 1, "X")
                 this.playerTurn--
+                this.isAiTurn = false
                 if (this.playerHas3InARow('X')) {
                     this.cpuWins++
                     this.winner = "CPU"
@@ -271,11 +276,29 @@ export default {
 </script>
 
 <style scoped>
+#aiTicTacToe {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 80vw;
+    background-color: rgb(207, 207, 207, .4);
+}
+
 .mainContainer {
     position: relative;
     height: 300px;
     width: 300px;
     z-index: 1;
+}
+
+.blockOverlay {
+    position: absolute;
+    background-color: rgba(249, 249, 249, 0.6);
+    top: 0;
+    left: 0;
+    height: 309px;
+    width: 300px;
+    z-index: 2;
 }
 
 .winnerOverlay {
@@ -312,11 +335,6 @@ export default {
 
 .opponentTwo {
     color: #ff1717 !important;
-}
-
-.playersTurn {
-    background-color: #25cb20;
-    color: #f9f9f9;
 }
 
 .winnerColor {
