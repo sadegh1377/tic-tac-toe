@@ -58,7 +58,7 @@
                         won!!
                     </h1>
                 </div>
-                <h1 class="mt-5" v-if="winner === 'Tie'">{{ winner }}</h1>
+                <h1 class="mt-5" v-if="winner === 'Draw'">{{ winner }}</h1>
                 <button class="btn btn-outline-info mt-5" @click="resetAll">Play Again?</button>
             </div>
         </div>
@@ -79,6 +79,7 @@ export default {
     mixins: [],
     data() {
         return {
+            timeoutID: null,
             playerTurn: 0,
             playerOneWins: 0,
             cpuWins: 0,
@@ -105,22 +106,27 @@ export default {
                 this.playerOneWins++
                 this.winner = "One"
             } else {
-                if (this.detectTie()) {
-                    this.winner = "Tie"
+                if (this.detectDraw()) {
+                    this.winner = "Draw"
                 }
             }
             //     Ai move
             let aiChoice = await this.getBestMove()
-            this.table[aiChoice.bestI][aiChoice.bestJ] = "X"
-            this.playerTurn--
-            if (this.playerHas3InARow('X')) {
-                this.cpuWins++
-                this.winner = "CPU"
-            } else {
-                if (this.detectTie()) {
-                    this.winner = "Tie"
+            console.log(aiChoice)
+            this.timeoutID = setTimeout(() => {
+                this.table[aiChoice.bestI].splice(aiChoice.bestJ, 1, "X")
+                this.playerTurn--
+                if (this.playerHas3InARow('X')) {
+                    this.cpuWins++
+                    this.winner = "CPU"
+                    clearTimeout(this.timeoutID)
+                } else {
+                    if (this.detectDraw()) {
+                        clearTimeout(this.timeoutID)
+                        this.winner = "Draw"
+                    }
                 }
-            }
+            }, 2000)
         },
         async getBestMove() {
             let cellRank = [[3, 2, 3], [2, 4, 2], [3, 2, 3]];
@@ -208,7 +214,7 @@ export default {
                     return null
             }
         },
-        detectTie() {
+        detectDraw() {
             for (let i = 0; i < this.table.length; i++) {
                 for (let j = 0; j < this.table.length; j++) {
                     if (this.table[i][j] === '') {
@@ -253,11 +259,10 @@ export default {
                 //  third row
                 ["", "", ""]
             ]
-            if (this.winner === 'One') {
-                this.playerTurn = 1
-            } else {
-                this.playerTurn = 0
+            if (this.timeoutID) {
+                clearTimeout(this.timeoutID)
             }
+            this.playerTurn = 0
             this.winner = null
 
         }
