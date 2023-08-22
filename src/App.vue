@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <change-lang class=""/>
         <transition name="fade" mode="out-in">
             <router-view/>
         </transition>
@@ -9,6 +10,7 @@
 
 <script setup>
 import SemiFooter from "@/components/SemiFooter.vue";
+import ChangeLang from "@/components/changeLang.vue";
 </script>
 
 <style>
