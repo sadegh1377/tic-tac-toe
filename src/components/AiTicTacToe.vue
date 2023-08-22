@@ -68,7 +68,8 @@
                    :playerOneWins="playerOneWins"
                    :playerTwoWins="cpuWins"
                    opponentOne="Opponent One"
-                   opponentTwo="CPU"/>
+                   opponentTwo="CPU"
+                   @restartGame="resetAll"/>
     </div>
 </template>
 
@@ -131,7 +132,7 @@ export default {
                         this.winner = "Draw"
                     }
                 }
-            }, 2000)
+            }, 1000)
         },
         async getBestMove() {
             let cellRank = [[3, 2, 3], [2, 4, 2], [3, 2, 3]];

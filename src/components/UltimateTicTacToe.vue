@@ -107,7 +107,8 @@
                        :playerOneWins="playerOneWins"
                        :playerTwoWins="playerTwoWins"
                        opponentOne="Opponent One"
-                       opponentTwo="Opponent Twe"/>
+                       opponentTwo="Opponent Twe"
+                       @restartGame="playAgain"/>
         </div>
     </div>
 </template>

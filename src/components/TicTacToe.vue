@@ -65,7 +65,8 @@
                    :playerOneWins="playerOneWins"
                    :playerTwoWins="playerTwoWins"
                    opponentOne="Opponent One"
-                   opponentTwo="Opponent Twe"/>
+                   opponentTwo="Opponent Twe"
+                   @restartGame="resetAll"/>
     </div>
 </template>
 
@@ -183,7 +184,7 @@ export default {
     right: 0;
     left: 0;
     width: 80vw;
-    background-color: rgb(207, 207, 207,.4);
+    background-color: rgb(207, 207, 207, .4);
 }
 
 .mainContainer {
