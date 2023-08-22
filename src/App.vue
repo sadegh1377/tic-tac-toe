@@ -18,6 +18,7 @@ import SemiFooter from "@/components/SemiFooter.vue";
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     height: 100vh;
+    background-attachment: fixed;
     background-image: url('assets/background.png');
 }
 
