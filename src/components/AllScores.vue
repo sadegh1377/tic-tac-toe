@@ -12,8 +12,31 @@
             </div>
             <div class="mt-4">{{ playerTwoWins }}</div>
         </div>
-        <router-link to="/" class="btn btn-outline-info btn-sm w-25 mt-3 mx-auto defaultBackground">Back to Home
-        </router-link>
+        <div class="mx-auto d-flex justify-content-center">
+            <button class="btn btn-outline-danger btn-sm w-25 mx-3 mt-3 defaultBackground"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal"> Restart
+            </button>
+            <router-link to="/" class="btn btn-outline-info btn-sm w-25 mx-3 mt-3 defaultBackground">Back to Home
+            </router-link>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Restart the Game</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to restart the game?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cansel</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="restartGame">Restart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -40,6 +63,11 @@ export default {
         opponentTwo: {
             type: String,
             require: true
+        }
+    },
+    methods: {
+        restartGame() {
+            this.$emit('restartGame')
         }
     }
 }
