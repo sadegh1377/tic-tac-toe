@@ -67,8 +67,8 @@
         <AllScores :playerTurn="playerTurn"
                    :playerOneWins="playerOneWins"
                    :playerTwoWins="cpuWins"
-                   opponentOne="Opponent One"
-                   opponentTwo="CPU"
+                   :opponentOne="$t('allScores.playerOne')"
+                   :opponentTwo="$t('allScores.cpuPlayer')"
                    @restartGame="resetAll"/>
     </div>
 </template>
