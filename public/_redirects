@@ -1,5 +1,5 @@
 # Redirects from what the browser requests to what we serve
 /                /
-/ai-ticTacToe   /ai-ticTacToe
-/ticTacToe                /ticTacToe
-/ultimate-ticTacToe              /ultimate-ticTacToe
+/ai-ticTacToe   https://tictactoegame9877.netlify.app/ai-ticTacToe
+/ticTacToe                https://tictactoegame9877.netlify.app/ticTacToe
+/ultimate-ticTacToe             https://tictactoegame9877.netlify.app/ultimate-ticTacToe
