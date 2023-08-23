@@ -14,12 +14,13 @@ import ChangeLang from "@/components/changeLang.vue";
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Rubik&display=swap');
+
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Rubik', 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    height: 100vh;
     background-attachment: fixed;
     background-image: url('assets/background.png');
 }
