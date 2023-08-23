@@ -1,5 +1,6 @@
 # Redirects from what the browser requests to what we serve
 /                /
-/ai-ticTacToe   /
-/ticTacToe                /
-/ultimate-ticTacToe              /
+/ai-ticTacToe   /ai-ticTacToe
+/ticTacToe                /ticTacToe
+/ultimate-ticTacToe              /ultimate-ticTacToe
+/*                                /
