@@ -1,5 +1,5 @@
 <template>
-    <div id="HomeView">
+    <div class="homeView" :class="{'increaseHeight': showRules !== null}">
         <div class="border rounded pb-5 my-5 mx-auto background shadow">
             <div class="d-flex flex-column flex-lg-row flex-md-column flex-sm-column">
                 <div class="card mx-5 mx-sm-auto my-5" style="width: 18rem;">
@@ -51,12 +51,15 @@
             </div>
             <div ref="rules" class="container border rounded mt-2 mb-5 bg-white" v-show="showRules === 'classic'">
                 <h4 class="mt-3">{{ $t('homePage.ticTacToeRulesTitle') }}</h4>
-                <div class="description p-3" v-html="$t('homePage.ticTacToeRules')">
+                <div class="description p-3"
+                     :class="{'changeToRtl': $i18n.locale ==='fa'}"
+                     v-html="$t('homePage.ticTacToeRules')">
                 </div>
             </div>
             <div ref="rules" class="container border rounded mt-2 mb-5 bg-white" v-show="showRules === 'ultimate'">
-                <h4 class="mt-3">{{ $t('homePage.ultimateTicTacToeRulesTitle')}}</h4>
+                <h4 class="mt-3">{{ $t('homePage.ultimateTicTacToeRulesTitle') }}</h4>
                 <div class="description p-3"
+                     :class="{'changeToRtl': $i18n.locale ==='fa'}"
                      v-html="$t('homePage.ultimateTicTacToeRules')">
                 </div>
             </div>
@@ -91,9 +94,12 @@ export default {
 </script>
 
 <style scoped>
-#HomeView {
+.homeView {
     height: 100vh;
-//background-color: #0d86ff;
+}
+
+.increaseHeight {
+    height: 1200px !important;
 }
 
 .cardImg {
@@ -115,5 +121,9 @@ export default {
     text-align: justify;
 }
 
+.changeToRtl {
+    direction: rtl !important;
+    line-height: 25px !important;
+}
 
 </style>
