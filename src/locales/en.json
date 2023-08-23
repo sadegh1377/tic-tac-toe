@@ -12,5 +12,20 @@
     "ultimateTicTacToeRulesTitle": "Ultimate Tic tac toe Rules",
     "ultimateTicTacToeRules": " Ultimate Tic-Tac-Toe is a more advanced version of the classic Tic-Tac-Toe\n                    game. It consists of nine smaller Tic-Tac-Toe boards arranged in a 3x3 grid. The objective is to win\n                    three small boards in a row to ultimately win the game.\n                    <br>\n                    In Ultimate Tic-Tac-Toe, players take turns placing their marks (usually X and O) on the board. The\n                    first player is typically O, and the second player is X. The rules for placing marks are as follows:\n                    <ol>\n                        <li style=\"font-weight: bold;\">\n                            The first move can be made anywhere on the board.\n                        </li>\n                        <li style=\"font-weight: bold;\">\n                            Each subsequent move corresponds to a specific board determined by the opponent's previous\n                            move. For\n                            example, if your opponent places their mark in the top-right cell of a small board, then you\n                            must\n                            make your move in the top-right board.\n                        </li>\n                        <li style=\"font-weight: bold;\">\n                            If a small board is already won by a player or ends in a tie, that board is considered\n                            \"completed,\"\n                            and any subsequent moves can be made in any unfilled cell of any other incomplete board.\n                        </li>\n                        <li style=\"font-weight: bold;\">\n                            When it's your turn to play in a specific small board, you must win that board to gain\n                            control of\n                            it. To win a small board, you need to get three of your marks in a row horizontally,\n                            vertically, or\n                            diagonally within that board.\n                        </li>\n                        <li style=\"font-weight: bold;\">\n                            If a player sends their opponent to a completed board, the opponent can choose any open cell\n                            on any\n                            incomplete board.\n                        </li>\n                        <li style=\"font-weight: bold;\">\n                            The game is won when a player has won three small boards in a row either horizontally,\n                            vertically,\n                            or diagonally across the large 3x3 grid.\n                        </li>\n                    </ol>\n                    The strategy in Ultimate Tic-Tac-Toe involves thinking not only about the immediate move but also\n                    which board to send your opponent to. You should aim to win small boards strategically to secure a\n                    win on the overall grid.",
     "playBtn": "Play"
+  },
+  "allScores": {
+    "backToHomeBtn": "Back to Home",
+    "restartBtn": "Restart",
+    "modalTitle": "Restart the Game",
+    "modalDes": "Are you sure you want to restart the game?",
+    "cancelBtn": "Cansel",
+    "playerOne": "Player One",
+    "playerTwo": "Player Two",
+    "cpuPlayer": "CPU"
+  },
+  "pageNotFound": {
+    "errorNum": "404",
+    "title": "Page not found",
+    "backToHomeBtn": "Home Page"
   }
 }
