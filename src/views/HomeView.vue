@@ -80,12 +80,15 @@ export default {
         showRulesDiv(whichRules) {
             if (this.showRules === whichRules) {
                 this.showRules = null
+                this.$store.dispatch("changeShowRules", null)
                 return
             }
             if (whichRules === 'classic') {
                 this.showRules = 'classic'
+                this.$store.dispatch("changeShowRules", 'classic')
             } else {
                 this.showRules = 'ultimate'
+                this.$store.dispatch("changeShowRules", 'ultimate')
             }
         }
     }

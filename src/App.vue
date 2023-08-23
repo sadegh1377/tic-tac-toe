@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" :class="{'increaseHeight':this.$store.state.showRules !== null && $route.name === 'Home' }">
         <change-lang class=""/>
         <transition name="fade" mode="out-in">
             <router-view/>
@@ -24,6 +24,10 @@ import ChangeLang from "@/components/changeLang.vue";
     height: 100vh;
     background-attachment: fixed;
     background-image: url('assets/background.png');
+}
+
+.increaseHeight {
+    height: 1200px !important;
 }
 
 .fade-enter-active {
