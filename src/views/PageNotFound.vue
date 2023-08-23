@@ -17,11 +17,11 @@
             </g>
         </svg>
         <div class="message-box">
-            <h1>404</h1>
-            <h2>Page not found</h2>
+            <h1>{{ $t('pageNotFound.errorNum') }}</h1>
+            <h2>{{ $t('pageNotFound.title') }}</h2>
             <div class="buttons-con">
                 <div class="action-link-wrap">
-                    <a @click="homePage()" class="link-button">Home Page</a>
+                    <a @click="homePage()" class="link-button">{{ $t('pageNotFound.backToHomeBtn') }}</a>
                 </div>
             </div>
         </div>
