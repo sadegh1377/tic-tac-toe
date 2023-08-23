@@ -21,6 +21,7 @@ import ChangeLang from "@/components/changeLang.vue";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+    height: 100vh;
     background-attachment: fixed;
     background-image: url('assets/background.png');
 }
