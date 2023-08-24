@@ -1,7 +1,7 @@
 <template>
     <div class="homeView" :class="{'increaseHeight': showRules !== null}">
         <div class="border rounded pb-5 my-5 mx-auto background shadow">
-            <div class="d-flex flex-column flex-lg-row flex-md-column flex-sm-column">
+            <div class="d-flex flex-row">
                 <div class="card mx-5 mx-sm-auto my-5" style="width: 18rem;">
                     <img src="../assets/aiTictacToe.png" class="card-img-top cardImg" alt="...">
                     <div class="card-body">
@@ -116,7 +116,8 @@ export default {
     position: absolute;
     right: 0;
     left: 0;
-    width: 80vw;
+    width: 1227px;
+    min-width: 1227px;
     background-color: rgba(245, 245, 245, 0.79);
 }
 

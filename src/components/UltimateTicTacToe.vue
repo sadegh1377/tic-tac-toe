@@ -552,7 +552,7 @@ export default {
     right: 0;
     left: 0;
     width: 80vw;
-    height: 95vh;
+    height: 679px;
     background-color: rgb(185, 185, 185);
 }
 
