@@ -110,9 +110,14 @@ export default {
             if (this.playerHas3InARow('O')) {
                 this.playerOneWins++
                 this.winner = "One"
+                this.playerTurn--
+                this.isAiTurn = false
+                return
             } else {
                 if (this.detectDraw()) {
                     this.winner = "Draw"
+                    this.isAiTurn = false
+                    return
                 }
             }
             //     Ai move
@@ -125,11 +130,15 @@ export default {
                 if (this.playerHas3InARow('X')) {
                     this.cpuWins++
                     this.winner = "CPU"
+                    this.playerTurn++
                     clearTimeout(this.timeoutID)
+                    return
                 } else {
                     if (this.detectDraw()) {
                         clearTimeout(this.timeoutID)
                         this.winner = "Draw"
+                        this.isAiTurn = false
+                        return
                     }
                 }
             }, 1000)

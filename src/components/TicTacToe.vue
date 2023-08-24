@@ -103,6 +103,7 @@ export default {
                 this.playerTurn++
                 if (this.playerHas3InARow('O')) {
                     this.playerOneWins++
+                    this.playerTurn--
                     this.winner = "One"
                 } else {
                     if (this.detectTie()) {
@@ -114,6 +115,7 @@ export default {
                 this.playerTurn--
                 if (this.playerHas3InARow('X')) {
                     this.playerTwoWins++
+                    this.playerTurn++
                     this.winner = "Two"
                 } else {
                     if (this.detectTie()) {

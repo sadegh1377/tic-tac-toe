@@ -299,6 +299,7 @@ export default {
                 console.log("This Is Player One")
                 if (this.playerHas3InARow(this.outerTable, "O")) {
                     console.log("player One Won")
+                    this.playerTurn--
                     this.playerOneWins++
                     this.winner = "One"
                 } else {
@@ -310,6 +311,7 @@ export default {
                 console.log("This Is Player Twe")
                 if (this.playerHas3InARow(this.outerTable, "X")) {
                     console.log("player Twe Won")
+                    this.playerTurn++
                     this.playerTwoWins++
                     this.winner = "Two"
                 } else {
