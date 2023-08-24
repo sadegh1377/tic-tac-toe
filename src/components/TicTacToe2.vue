@@ -133,7 +133,7 @@ export default {
 
 .blockOverlay {
     position: absolute;
-    background-color: rgba(249, 249, 249, 0.8);
+    background-color: rgba(249, 249, 249, 0.5);
     top: 0;
     left: 0;
     width: 150px;
