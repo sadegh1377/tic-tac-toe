@@ -1,5 +1,5 @@
 <template>
-    <div id="UltimateTicTacToe" class="mx-auto mt-3">
+    <div id="UltimateTicTacToe" class="mx-auto mt-3 rounded">
         <div class="ultimateMainContainer mx-auto gap-3 row mt-3">
             <!--  winner overlay  -->
             <div class="outerWinnerOverlay" v-if="winner">

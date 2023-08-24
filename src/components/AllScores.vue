@@ -1,14 +1,14 @@
 <template>
     <div class="container mx-auto row py-5">
         <div class="col-6">
-            <div class="border py-2 defaultBackground"
+            <div class="border py-2 defaultBackground rounded"
                  :class="{'playersTurn':playerTurn === 0, 'changeDir': $i18n.locale === 'fa'}">
                 {{ opponentOne }}: O
             </div>
             <div class="mt-4">{{ playerOneWins }}</div>
         </div>
         <div class="col-6">
-            <div class="border py-2 defaultBackground"
+            <div class="border py-2 defaultBackground rounded"
                  :class="{'playersTurn':playerTurn === 1 , 'changeDir': $i18n.locale === 'fa'}">
                 {{ opponentTwo }}: X
             </div>
