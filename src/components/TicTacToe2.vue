@@ -1,55 +1,64 @@
 <template>
     <div class="mainContainer row p-0 m-0">
         <div class="cellContainer border" @click="addMark(0,0)"
-             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null}">
+             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null ,
+             'disableCell': innerTable[0][0] !== ''}">
             <div class="opponent opponentOne mt-2 text-center" :class="{'opponentTwo': innerTable[0][0] === 'X'}">
                 {{ innerTable[0][0] }}
             </div>
         </div>
         <div class="cellContainer border" @click="addMark(0,1)"
-             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null}">
+             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null,
+             'disableCell': innerTable[0][1] !== ''}">
             <div class="opponent opponentOne mt-2 text-center" :class="{'opponentTwo': innerTable[0][1] === 'X'}">
                 {{ innerTable[0][1] }}
             </div>
         </div>
         <div class="cellContainer border" @click="addMark(0,2)"
-             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null}">
+             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null,
+             'disableCell': innerTable[0][2] !== ''}">
             <div class="opponent opponentOne mt-2 text-center" :class="{'opponentTwo': innerTable[0][2] === 'X'}">
                 {{ innerTable[0][2] }}
             </div>
         </div>
         <div class="cellContainer border" @click="addMark(1,0)"
-             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null}">
+             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null,
+             'disableCell': innerTable[1][0] !== ''}">
             <div class="opponent opponentOne mt-2 text-center" :class="{'opponentTwo': innerTable[1][0] === 'X'}">
                 {{ innerTable[1][0] }}
             </div>
         </div>
         <div class="cellContainer border" @click="addMark(1,1)"
-             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null}">
+             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null,
+             'disableCell': innerTable[1][1] !== ''}">
             <div class="opponent opponentOne mt-2 text-center" :class="{'opponentTwo': innerTable[1][1] === 'X'}">
                 {{ innerTable[1][1] }}
             </div>
         </div>
         <div class="cellContainer border" @click="addMark(1,2)"
-             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null}">
+             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null,
+             'disableCell': innerTable[1][2] !== ''}">
             <div class="opponent opponentOne mt-2 text-center" :class="{'opponentTwo': innerTable[1][2] === 'X'}">
                 {{ innerTable[1][2] }}
             </div>
         </div>
         <div class="cellContainer border" @click="addMark(2,0)"
-             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null}">
+             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null,
+             'disableCell': innerTable[2][0] !== ''}">
             <div class="opponent opponentOne mt-2 text-center" :class="{'opponentTwo': innerTable[2][0] === 'X'}">
                 {{ innerTable[2][0] }}
             </div>
         </div>
         <div class="cellContainer border" @click="addMark(2,1)"
-             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null}">
+             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null,
+             'disableCell': innerTable[2][1] !== ''}">
             <div class="opponent opponentOne mt-2 text-center" :class="{'opponentTwo': innerTable[2][1] === 'X'}">
                 {{ innerTable[2][1] }}
             </div>
         </div>
         <div class="cellContainer border" @click="addMark(2,2)"
-             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null}">
+             :class="{'selectedTable': whichTableToPlay === tableNum && whichTableToPlay !== null,
+             'disableCell': innerTable[2][2] !== ''}">
             <div class="opponent opponentOne mt-2 text-center" :class="{'opponentTwo': innerTable[2][2] === 'X'}">
                 {{ innerTable[2][2] }}
             </div>
@@ -95,17 +104,15 @@ export default {
 <style scoped>
 
 .cellContainer {
-    width: 33%;
-    padding: 0 !important;
-    height: 50px;
-    cursor: pointer;
-}
-
-.cellContainer {
     background-color: #f9f9f9;
     width: 33%;
     height: 33.99%;
     cursor: pointer;
+    padding: 0 !important;
+}
+
+.disableCell {
+    pointer-events: none;
 }
 
 .cellContainer:active {
