@@ -84,6 +84,7 @@ export default {
 </script>
 
 <style scoped>
+@import "../assets/style.css";
 .defaultBackground {
     background-color: white;
 }
@@ -91,10 +92,6 @@ export default {
 .playersTurn {
     background-color: #25cb20 !important;
     color: #f9f9f9;
-}
-
-.changeDir {
-    direction: rtl !important;
 }
 
 .changeDirBtn {
