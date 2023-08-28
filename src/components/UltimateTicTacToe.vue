@@ -3,21 +3,28 @@
         <div class="ultimateMainContainer mx-auto gap-3 row mt-3">
             <!--  winner overlay  -->
             <div class="outerWinnerOverlay" v-if="winner">
-                <div class="winnerText" v-if="winner === 'One'|| winner === 'Two'">
-                    <h1 class="mt-5">Player
+                <div class="winnerText"
+                     v-if="winner === 'One'|| winner === 'Two' || winner === 'یک' || winner === 'دو' "
+                     :class="{'changeDir': $i18n.locale === 'fa' }">
+                    <h1 class="mt-5">{{ $t('winnerOverlay.player') }}
                         <span class="winnerColor">{{ winner }}</span>
-                        won!!
+                        {{ $t('winnerOverlay.won') }}!!
                     </h1>
                 </div>
-                <h1 class="mt-5" v-if="winner === 'Tie'">{{ winner }}</h1>
-                <button class="btn btn-outline-info playAgainBtn" @click="playAgain">Play Again?</button>
+                <h1 class="mt-5" v-if="winner === 'Draw'">{{ winner }}</h1>
+                <button class="btn btn-outline-info playAgainBtn" @click="playAgain">{{
+                    $t('winnerOverlay.playAgainBtn')
+                    }}
+                </button>
             </div>
             <tic-tac-toe2 :inner-table="table1"
                           :whichTableToPlay="tableNum"
                           :tableNum="1"
                           @addMark="selectTable">
                 <div class="winnerOverlay" v-if="outerTable[0][0] !== ''">
-                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][0] === 'X'}">
+                    <h1 class="opponent opponentOne text-center"
+                        :class="{'opponentTwo': outerTable[0][0] === 'X',
+                        'draw': outerTable[0][0] === 'Draw' || outerTable[0][0] === 'مساوی'}">
                         {{ outerTable[0][0] }}
                     </h1>
                 </div>
@@ -27,7 +34,8 @@
                           :tableNum="2"
                           @addMark="selectTable">
                 <div class="winnerOverlay" v-if="outerTable[0][1] !== ''">
-                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][1] === 'X'}">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][1] === 'X',
+                    'draw': outerTable[0][1] === 'Draw' || outerTable[0][1] === 'مساوی'}">
                         {{ outerTable[0][1] }}
                     </h1>
                 </div>
@@ -37,7 +45,8 @@
                           :tableNum="3"
                           @addMark="selectTable">
                 <div class="winnerOverlay" v-if="outerTable[0][2] !== ''">
-                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][2] === 'X'}">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[0][2] === 'X',
+                    'draw': outerTable[0][2] === 'Draw' || outerTable[0][2] === 'مساوی'}">
                         {{ outerTable[0][2] }}
                     </h1>
                 </div>
@@ -47,7 +56,8 @@
                           :tableNum="4"
                           @addMark="selectTable">
                 <div class="winnerOverlay" v-if="outerTable[1][0] !== ''">
-                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][0] === 'X'}">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][0] === 'X',
+                    'draw': outerTable[1][0] === 'Draw' || outerTable[1][0] === 'مساوی'}">
                         {{ outerTable[1][0] }}
                     </h1>
                 </div>
@@ -57,7 +67,8 @@
                           :tableNum="5"
                           @addMark="selectTable">
                 <div class="winnerOverlay" v-if="outerTable[1][1] !== ''">
-                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][1] === 'X'}">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][1] === 'X',
+                    'draw': outerTable[1][1] === 'Draw' || outerTable[1][1] === 'مساوی'}">
                         {{ outerTable[1][1] }}
                     </h1>
                 </div>
@@ -67,7 +78,8 @@
                           :tableNum="6"
                           @addMark="selectTable">
                 <div class="winnerOverlay" v-if="outerTable[1][2] !== ''">
-                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][2] === 'X'}">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[1][2] === 'X',
+                    'draw': outerTable[1][2] === 'Draw' || outerTable[1][2] === 'مساوی'}">
                         {{ outerTable[1][2] }}
                     </h1>
                 </div>
@@ -77,7 +89,8 @@
                           :tableNum="7"
                           @addMark="selectTable">
                 <div class="winnerOverlay" v-if="outerTable[2][0] !== ''">
-                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][0] === 'X'}">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][0] === 'X',
+                    'draw': outerTable[2][0] === 'Draw' || outerTable[2][0] === 'مساوی'}">
                         {{ outerTable[2][0] }}
                     </h1>
                 </div>
@@ -87,7 +100,8 @@
                           :tableNum="8"
                           @addMark="selectTable">
                 <div class="winnerOverlay" v-if="outerTable[2][1] !== ''">
-                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][1] === 'X'}">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][1] === 'X',
+                    'draw': outerTable[2][1] === 'Draw' || outerTable[2][1] === 'مساوی'}">
                         {{ outerTable[2][1] }}
                     </h1>
                 </div>
@@ -97,7 +111,8 @@
                           :tableNum="9"
                           @addMark="selectTable">
                 <div class="winnerOverlay" v-if="outerTable[2][2] !== ''">
-                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][2] === 'X'}">
+                    <h1 class="opponent opponentOne text-center" :class="{'opponentTwo': outerTable[2][2] === 'X',
+                    'draw': outerTable[2][2] === 'Draw' || outerTable[2][2] === 'مساوی'}">
                         {{ outerTable[2][2] }}
                     </h1>
                 </div>
@@ -116,6 +131,7 @@
 <script>
 import AllScores from "@/components/AllScores.vue";
 import TicTacToe2 from "@/components/TicTacToe2";
+import i18n from "@/i18n";
 
 export default {
     name: "UltimateTicTacToe",
@@ -124,7 +140,6 @@ export default {
         return {
             tableNum: null,
             winner: null,
-            innerTablesWon: [],
             playerTurn: 0,
             playerOneWins: 0,
             playerTwoWins: 0,
@@ -221,8 +236,13 @@ export default {
                 // console.log(this.table1)
                 // console.log(this.playerHas3InARow(this.table1, this.table1[x][y]))
                 if (this.playerHas3InARow(this.table1, this.table1[x][y])) {
-                    this.winInInnerTable(tableNum, this.table1[x][y])
+                    this.whichTableIsWin(tableNum, this.table1[x][y])
                     this.checkOuterWinner(x, y)
+                } else {
+                    console.log('detectTieInnerTable = ' + this.detectTieInInnerTable(this.table1))
+                    if (this.detectTieInInnerTable(this.table1)) {
+                        this.whichTableIsWin(1, i18n.t('winnerOverlay.tie'))
+                    }
                 }
                 this.whichTableToPlay(x, y)
             } else if (tableNum === 2) {
@@ -230,64 +250,104 @@ export default {
                 this.$set(this.table2, x, newRow)
 
                 if (this.playerHas3InARow(this.table2, this.table2[x][y])) {
-                    this.winInInnerTable(tableNum, this.table2[x][y])
+                    this.whichTableIsWin(tableNum, this.table2[x][y])
                     this.checkOuterWinner(x, y)
+                } else {
+                    console.log('detectTieInnerTable = ' + this.detectTieInInnerTable(this.table2))
+                    if (this.detectTieInInnerTable(this.table2)) {
+                        this.whichTableIsWin(2, i18n.t('winnerOverlay.tie'))
+                    }
                 }
                 this.whichTableToPlay(x, y)
             } else if (tableNum === 3) {
                 const newRow = this.addMark(x, y, this.table3)
                 this.$set(this.table3, x, newRow)
                 if (this.playerHas3InARow(this.table3, this.table3[x][y])) {
-                    this.winInInnerTable(tableNum, this.table3[x][y])
+                    this.whichTableIsWin(tableNum, this.table3[x][y])
                     this.checkOuterWinner(x, y)
+                } else {
+                    console.log('detectTieInnerTable = ' + this.detectTieInInnerTable(this.table3))
+                    if (this.detectTieInInnerTable(this.table3)) {
+                        this.whichTableIsWin(3, i18n.t('winnerOverlay.tie'))
+                    }
                 }
                 this.whichTableToPlay(x, y)
             } else if (tableNum === 4) {
                 const newRow = this.addMark(x, y, this.table4)
                 this.$set(this.table4, x, newRow)
                 if (this.playerHas3InARow(this.table4, this.table4[x][y])) {
-                    this.winInInnerTable(tableNum, this.table4[x][y])
+                    this.whichTableIsWin(tableNum, this.table4[x][y])
                     this.checkOuterWinner(x, y)
+                } else {
+                    console.log('detectTieInnerTable = ' + this.detectTieInInnerTable(this.table4))
+                    if (this.detectTieInInnerTable(this.table4)) {
+                        this.whichTableIsWin(4, i18n.t('winnerOverlay.tie'))
+                    }
                 }
                 this.whichTableToPlay(x, y)
             } else if (tableNum === 5) {
                 const newRow = this.addMark(x, y, this.table5)
                 this.$set(this.table5, x, newRow)
                 if (this.playerHas3InARow(this.table5, this.table5[x][y])) {
-                    this.winInInnerTable(tableNum, this.table5[x][y])
+                    this.whichTableIsWin(tableNum, this.table5[x][y])
                     this.checkOuterWinner(x, y)
+                } else {
+                    console.log('detectTieInnerTable = ' + this.detectTieInInnerTable(this.table5))
+                    if (this.detectTieInInnerTable(this.table5)) {
+                        this.whichTableIsWin(5, i18n.t('winnerOverlay.tie'))
+                    }
                 }
                 this.whichTableToPlay(x, y)
             } else if (tableNum === 6) {
                 const newRow = this.addMark(x, y, this.table6)
                 this.$set(this.table6, x, newRow)
                 if (this.playerHas3InARow(this.table6, this.table6[x][y])) {
-                    this.winInInnerTable(tableNum, this.table6[x][y])
+                    this.whichTableIsWin(tableNum, this.table6[x][y])
                     this.checkOuterWinner(x, y)
+                } else {
+                    console.log('detectTieInnerTable = ' + this.detectTieInInnerTable(this.table6))
+                    if (this.detectTieInInnerTable(this.table6)) {
+                        this.whichTableIsWin(6, i18n.t('winnerOverlay.tie'))
+                    }
                 }
                 this.whichTableToPlay(x, y)
             } else if (tableNum === 7) {
                 const newRow = this.addMark(x, y, this.table7)
                 this.$set(this.table7, x, newRow)
                 if (this.playerHas3InARow(this.table7, this.table7[x][y])) {
-                    this.winInInnerTable(tableNum, this.table7[x][y])
+                    this.whichTableIsWin(tableNum, this.table7[x][y])
                     this.checkOuterWinner(x, y)
+                } else {
+                    console.log('detectTieInnerTable = ' + this.detectTieInInnerTable(this.table7))
+                    if (this.detectTieInInnerTable(this.table7)) {
+                        this.whichTableIsWin(7, i18n.t('winnerOverlay.tie'))
+                    }
                 }
                 this.whichTableToPlay(x, y)
             } else if (tableNum === 8) {
                 const newRow = this.addMark(x, y, this.table8)
                 this.$set(this.table8, x, newRow)
                 if (this.playerHas3InARow(this.table8, this.table8[x][y])) {
-                    this.winInInnerTable(tableNum, this.table8[x][y])
+                    this.whichTableIsWin(tableNum, this.table8[x][y])
                     this.checkOuterWinner(x, y)
+                } else {
+                    console.log('detectTieInnerTable = ' + this.detectTieInInnerTable(this.table8))
+                    if (this.detectTieInInnerTable(this.table8)) {
+                        this.whichTableIsWin(8, i18n.t('winnerOverlay.tie'))
+                    }
                 }
                 this.whichTableToPlay(x, y)
             } else if (tableNum === 9) {
                 const newRow = this.addMark(x, y, this.table9)
                 this.$set(this.table9, x, newRow)
                 if (this.playerHas3InARow(this.table9, this.table9[x][y])) {
-                    this.winInInnerTable(tableNum, this.table9[x][y])
+                    this.whichTableIsWin(tableNum, this.table9[x][y])
                     this.checkOuterWinner(x, y)
+                } else {
+                    console.log('detectTieInnerTable = ' + this.detectTieInInnerTable(this.table9))
+                    if (this.detectTieInInnerTable(this.table9)) {
+                        this.whichTableIsWin(9, i18n.t('winnerOverlay.tie'))
+                    }
                 }
                 this.whichTableToPlay(x, y)
             }
@@ -301,10 +361,10 @@ export default {
                     console.log("player One Won")
                     this.playerTurn--
                     this.playerOneWins++
-                    this.winner = "One"
+                    this.winner = i18n.t('winnerOverlay.playerOneWon')
                 } else {
                     if (this.detectTie()) {
-                        this.winner = "Tie"
+                        this.winner = i18n.t('winnerOverlay.tie')
                     }
                 }
             } else {
@@ -313,13 +373,23 @@ export default {
                     console.log("player Twe Won")
                     this.playerTurn++
                     this.playerTwoWins++
-                    this.winner = "Two"
+                    this.winner = i18n.t('winnerOverlay.playerTwoWon')
                 } else {
                     if (this.detectTie()) {
-                        this.winner = "Tie"
+                        this.winner = i18n.t('winnerOverlay.tie')
                     }
                 }
             }
+        },
+        detectTieInInnerTable(table) {
+            for (let i = 0; i < table.length; i++) {
+                for (let j = 0; j < table.length; j++) {
+                    if (table[i][j] === '') {
+                        return false
+                    }
+                }
+            }
+            return true
         },
         detectTie() {
             for (let i = 0; i < this.outerTable.length; i++) {
@@ -346,10 +416,6 @@ export default {
             }
             return newRow
 
-        },
-        winInInnerTable(tableNum, playerMark) {
-            this.innerTablesWon.push(tableNum)
-            this.whichTableIsWin(tableNum, playerMark)
         },
         whichTableIsWin(tableNum, playerMark) {
             switch (tableNum) {
@@ -619,4 +685,7 @@ export default {
     z-index: 2;
 }
 
+.draw {
+    color: #70757a;
+}
 </style>
