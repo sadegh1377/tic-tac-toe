@@ -17,7 +17,7 @@
                     }}
                 </button>
             </div>
-            <tic-tac-toe2 :inner-table="table1"
+            <InnerTable :inner-table="table1"
                           :whichTableToPlay="tableNum"
                           :tableNum="1"
                           @addMark="selectTable">
@@ -28,8 +28,8 @@
                         {{ outerTable[0][0] }}
                     </h1>
                 </div>
-            </tic-tac-toe2>
-            <tic-tac-toe2 :inner-table="table2"
+            </InnerTable>
+            <InnerTable :inner-table="table2"
                           :whichTableToPlay="tableNum"
                           :tableNum="2"
                           @addMark="selectTable">
@@ -39,8 +39,8 @@
                         {{ outerTable[0][1] }}
                     </h1>
                 </div>
-            </tic-tac-toe2>
-            <tic-tac-toe2 :inner-table="table3"
+            </InnerTable>
+            <InnerTable :inner-table="table3"
                           :whichTableToPlay="tableNum"
                           :tableNum="3"
                           @addMark="selectTable">
@@ -50,8 +50,8 @@
                         {{ outerTable[0][2] }}
                     </h1>
                 </div>
-            </tic-tac-toe2>
-            <tic-tac-toe2 :inner-table="table4"
+            </InnerTable>
+            <InnerTable :inner-table="table4"
                           :whichTableToPlay="tableNum"
                           :tableNum="4"
                           @addMark="selectTable">
@@ -61,8 +61,8 @@
                         {{ outerTable[1][0] }}
                     </h1>
                 </div>
-            </tic-tac-toe2>
-            <tic-tac-toe2 :inner-table="table5"
+            </InnerTable>
+            <InnerTable :inner-table="table5"
                           :whichTableToPlay="tableNum"
                           :tableNum="5"
                           @addMark="selectTable">
@@ -72,8 +72,8 @@
                         {{ outerTable[1][1] }}
                     </h1>
                 </div>
-            </tic-tac-toe2>
-            <tic-tac-toe2 :inner-table="table6"
+            </InnerTable>
+            <InnerTable :inner-table="table6"
                           :whichTableToPlay="tableNum"
                           :tableNum="6"
                           @addMark="selectTable">
@@ -83,8 +83,8 @@
                         {{ outerTable[1][2] }}
                     </h1>
                 </div>
-            </tic-tac-toe2>
-            <tic-tac-toe2 :inner-table="table7"
+            </InnerTable>
+            <InnerTable :inner-table="table7"
                           :whichTableToPlay="tableNum"
                           :tableNum="7"
                           @addMark="selectTable">
@@ -94,8 +94,8 @@
                         {{ outerTable[2][0] }}
                     </h1>
                 </div>
-            </tic-tac-toe2>
-            <tic-tac-toe2 :inner-table="table8"
+            </InnerTable>
+            <InnerTable :inner-table="table8"
                           :whichTableToPlay="tableNum"
                           :tableNum="8"
                           @addMark="selectTable">
@@ -105,8 +105,8 @@
                         {{ outerTable[2][1] }}
                     </h1>
                 </div>
-            </tic-tac-toe2>
-            <tic-tac-toe2 :inner-table="table9"
+            </InnerTable>
+            <InnerTable :inner-table="table9"
                           :whichTableToPlay="tableNum"
                           :tableNum="9"
                           @addMark="selectTable">
@@ -116,7 +116,7 @@
                         {{ outerTable[2][2] }}
                     </h1>
                 </div>
-            </tic-tac-toe2>
+            </InnerTable>
             <AllScores class="pt-3"
                        :playerTurn="playerTurn"
                        :playerOneWins="playerOneWins"
@@ -130,12 +130,12 @@
 
 <script>
 import AllScores from "@/components/AllScores.vue";
-import TicTacToe2 from "@/components/TicTacToe2";
+import InnerTable from "@/components/InnerTable.vue";
 import i18n from "@/i18n";
 
 export default {
     name: "UltimateTicTacToe",
-    components: {TicTacToe2, AllScores},
+    components: {InnerTable: InnerTable, AllScores},
     data() {
         return {
             tableNum: null,
@@ -641,7 +641,6 @@ export default {
 }
 
 .winnerColor {
-    color: #FFD700;
     font-size: 50px !important;
 }
 

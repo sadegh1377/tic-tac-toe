@@ -1,6 +1,6 @@
 <template>
     <div id="app" :class="{'increaseHeight':this.$store.state.showRules !== null && $route.name === 'Home' }">
-        <change-lang class=""/>
+        <ChangeLang class=""/>
         <transition name="fade" mode="out-in">
             <router-view/>
         </transition>
@@ -10,7 +10,7 @@
 
 <script setup>
 import SemiFooter from "@/components/SemiFooter.vue";
-import ChangeLang from "@/components/changeLang.vue";
+import ChangeLang from "@/components/ChangeLang.vue";
 </script>
 
 <style>
