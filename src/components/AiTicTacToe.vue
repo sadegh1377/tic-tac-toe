@@ -51,15 +51,17 @@
             </div>
             <!--  winner overlay  -->
             <div class="winnerOverlay" v-if="winner">
-                <div v-if="winner === 'One'|| winner === 'CPU'">
+                <div v-if="winner === 'One'|| winner === 'CPU' || winner === 'یک' || winner === 'کامپیوتر'"
+                     :class="{'changeDir': $i18n.locale === 'fa' }">
                     <h1 class="mt-5">
-                        <span v-if="winner !== 'CPU'">Player</span>
+                        <span v-if="winner !== 'CPU'">{{ $t('winnerOverlay.player') }}
+                         </span>
                         <span class="winnerColor">{{ winner }}</span>
-                        won!!
+                        {{ $t('winnerOverlay.won') }}!!
                     </h1>
                 </div>
-                <h1 class="mt-5" v-if="winner === 'Draw'">{{ winner }}</h1>
-                <button class="btn btn-outline-info mt-5" @click="resetAll">Play Again?</button>
+                <h1 class="mt-5" v-if="winner === 'Draw' || winner === 'مساوی' ">{{ winner }}</h1>
+                <button class="btn btn-outline-info mt-5" @click="resetAll">{{ $t('winnerOverlay.playAgainBtn') }}</button>
             </div>
             <div class="blockOverlay" v-if="isAiTurn" title="It's CPU Turn">
             </div>
@@ -75,6 +77,7 @@
 
 <script>
 import AllScores from "@/components/AllScores.vue";
+import i18n from "@/i18n";
 
 export default {
     name: "aiTicTacToe",
@@ -109,13 +112,13 @@ export default {
             this.playerTurn++
             if (this.playerHas3InARow('O')) {
                 this.playerOneWins++
-                this.winner = "One"
+                this.winner = i18n.t('winnerOverlay.playerOneWon')
                 this.playerTurn--
                 this.isAiTurn = false
                 return
             } else {
                 if (this.detectDraw()) {
-                    this.winner = "Draw"
+                    this.winner = i18n.t('winnerOverlay.tie')
                     this.isAiTurn = false
                     return
                 }
@@ -129,14 +132,14 @@ export default {
                 this.isAiTurn = false
                 if (this.playerHas3InARow('X')) {
                     this.cpuWins++
-                    this.winner = "CPU"
+                    this.winner = i18n.t('winnerOverlay.cpu')
                     this.playerTurn++
                     clearTimeout(this.timeoutID)
                     return
                 } else {
                     if (this.detectDraw()) {
                         clearTimeout(this.timeoutID)
-                        this.winner = "Draw"
+                        this.winner = i18n.t('winnerOverlay.tie')
                         this.isAiTurn = false
                         return
                     }
@@ -286,6 +289,8 @@ export default {
 </script>
 
 <style scoped>
+@import "../assets/style.css";
+
 #aiTicTacToe {
     position: absolute;
     right: 0;

@@ -51,14 +51,16 @@
             </div>
             <!--  winner overlay  -->
             <div class="winnerOverlay" v-if="winner">
-                <div v-if="winner === 'One'|| winner === 'Two'">
-                    <h1 class="mt-5">Player
+                <div v-if="winner === 'One'|| winner === 'Two' || winner === 'یک' || winner === 'دو'  "
+                     :class="{'changeDir': $i18n.locale === 'fa' }">
+                    <h1 class="mt-5">{{ $t('winnerOverlay.player') }}
                         <span class="winnerColor">{{ winner }}</span>
-                        won!!
+                        {{ $t('winnerOverlay.won') }}!!
                     </h1>
                 </div>
-                <h1 class="mt-5" v-if="winner === 'Tie'">{{ winner }}</h1>
-                <button class="btn btn-outline-info mt-5" @click="resetAll">Play Again?</button>
+                <h1 class="mt-5" v-if="winner === 'Draw' || winner === 'مساوی' ">{{ winner }}</h1>
+                <button class="btn btn-outline-info mt-5" @click="resetAll">{{ $t('winnerOverlay.playAgainBtn') }}
+                </button>
             </div>
         </div>
         <AllScores :playerTurn="playerTurn"
@@ -72,6 +74,7 @@
 
 <script>
 import AllScores from "@/components/AllScores.vue";
+import i18n from "@/i18n";
 
 export default {
     name: "ticTacToe",
@@ -104,10 +107,10 @@ export default {
                 if (this.playerHas3InARow('O')) {
                     this.playerOneWins++
                     this.playerTurn--
-                    this.winner = "One"
+                    this.winner = i18n.t('winnerOverlay.playerOneWon')
                 } else {
                     if (this.detectTie()) {
-                        this.winner = "Tie"
+                        this.winner = i18n.t('winnerOverlay.tie')
                     }
                 }
             } else {
@@ -116,10 +119,10 @@ export default {
                 if (this.playerHas3InARow('X')) {
                     this.playerTwoWins++
                     this.playerTurn++
-                    this.winner = "Two"
+                    this.winner = i18n.t('winnerOverlay.playerTwoWon')
                 } else {
                     if (this.detectTie()) {
-                        this.winner = "Tie"
+                        this.winner = i18n.t('winnerOverlay.tie')
                     }
                 }
             }
@@ -181,6 +184,8 @@ export default {
 </script>
 
 <style scoped>
+@import "../assets/style.css";
+
 #TicTacToe {
     position: absolute;
     right: 0;

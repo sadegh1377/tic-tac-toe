@@ -27,5 +27,14 @@
     "errorNum": "404",
     "title": "Page not found",
     "backToHomeBtn": "Home Page"
+  },
+  "winnerOverlay": {
+    "playAgainBtn": "Play Again?",
+    "player": "Player",
+    "won": "won",
+    "playerOneWon": "One",
+    "playerTwoWon": "Two",
+    "cpu": "CPU",
+    "tie": "Draw"
   }
 }

@@ -27,5 +27,14 @@
     "errorNum": "۴۰۴",
     "title": "صفحه یافت نشد",
     "backToHomeBtn": "صفحه اصلی"
+  },
+  "winnerOverlay": {
+    "playAgainBtn": "شروع دوباره؟",
+    "player": "بازیکن",
+    "won": "برد",
+    "playerOneWon": "یک",
+    "playerTwoWon": "دو",
+    "cpu": "کامپیوتر",
+    "tie": "مساوی"
   }
 }
