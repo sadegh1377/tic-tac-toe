@@ -344,15 +344,4 @@ export default {
 
 }
 
-.opponentOne {
-    color: #0d86ff;
-}
-
-.opponentTwo {
-    color: #ff1717 !important;
-}
-
-.winnerColor {
-    color: #FFD700;
-}
 </style>
