@@ -54,14 +54,18 @@
                 <div v-if="winner === 'One'|| winner === 'CPU' || winner === 'یک' || winner === 'کامپیوتر'"
                      :class="{'changeDir': $i18n.locale === 'fa' }">
                     <h1 class="mt-5">
-                        <span v-if="winner !== 'CPU'">{{ $t('winnerOverlay.player') }}
+                        <span v-if="winner === 'One' || winner === 'یک' ">
+                            {{ $t('winnerOverlay.player') }}
                          </span>
                         <span class="winnerColor">{{ winner }}</span>
                         {{ $t('winnerOverlay.won') }}!!
                     </h1>
                 </div>
                 <h1 class="mt-5" v-if="winner === 'Draw' || winner === 'مساوی' ">{{ winner }}</h1>
-                <button class="btn btn-outline-info mt-5" @click="resetAll">{{ $t('winnerOverlay.playAgainBtn') }}</button>
+                <button class="btn btn-outline-info mt-5" @click="resetAll">{{
+                    $t('winnerOverlay.playAgainBtn')
+                    }}
+                </button>
             </div>
             <div class="blockOverlay" v-if="isAiTurn" title="It's CPU Turn">
             </div>
@@ -113,6 +117,7 @@ export default {
             if (this.playerHas3InARow('O')) {
                 this.playerOneWins++
                 this.winner = i18n.t('winnerOverlay.playerOneWon')
+                console.log(this.winner)
                 this.playerTurn--
                 this.isAiTurn = false
                 return
