@@ -11,7 +11,7 @@
 import i18n from "@/i18n";
 
 export default {
-    name: "changeLang",
+    name: "ChangeLang",
     data() {
         return {
             selectedLang: i18n.locale,

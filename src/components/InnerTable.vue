@@ -73,7 +73,7 @@
 
 <script>
 export default {
-    name: "TicTacToe2",
+    name: "InnerTable",
     props: {
         tableNum: {
             type: Number,
@@ -124,14 +124,6 @@ export default {
 .opponent {
     font-size: 25px;
 
-}
-
-.opponentOne {
-    color: #0d86ff;
-}
-
-.opponentTwo {
-    color: #ff1717 !important;
 }
 
 .selectedTable {
