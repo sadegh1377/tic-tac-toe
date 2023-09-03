@@ -2,7 +2,7 @@
     <div class="homeView" :class="{'increaseHeight': showRules !== null}">
         <div class="border rounded pb-5 my-5 mx-auto background shadow">
             <div class="d-flex flex-row">
-                <div class="card mx-5 mx-sm-auto my-5" style="width: 18rem;">
+                <div class="card mx-5 mx-sm-auto my-5 shadow" style="width: 18rem;">
                     <img src="../assets/aiTictacToe.png" class="card-img-top cardImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $t('homePage.ticTacToeAiTitle') }}</h5>
@@ -17,7 +17,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="card mx-5 mx-sm-auto my-5" style="width: 18rem;">
+                <div class="card mx-5 mx-sm-auto my-5 shadow" style="width: 18rem;">
                     <img src="../assets/ticTacToe.png" class="card-img-top cardImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $t('homePage.ticTacToeTitle') }}</h5>
@@ -32,7 +32,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="card mx-5 mx-sm-auto my-5" style="width: 18rem;">
+                <div class="card mx-5 mx-sm-auto my-5 shadow" style="width: 18rem;">
                     <img src="../assets/ultimate.png" class="card-img-top cardImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $t('homePage.ultimateTicTacToeTitle') }}</h5>
@@ -49,14 +49,16 @@
                     </div>
                 </div>
             </div>
-            <div ref="rules" class="rulesContainer border rounded mx-auto mt-2 mb-5 bg-white" v-show="showRules === 'classic'">
+            <div ref="rules" class="rulesContainer border rounded mx-auto mt-2 mb-5 bg-white"
+                 v-show="showRules === 'classic'">
                 <h4 class="mt-3">{{ $t('homePage.ticTacToeRulesTitle') }}</h4>
                 <div class="description p-3"
                      :class="{'changeToRtl': $i18n.locale ==='fa'}"
                      v-html="$t('homePage.ticTacToeRules')">
                 </div>
             </div>
-            <div ref="rules" class="rulesContainer border rounded mx-auto mt-2 mb-5 bg-white" v-show="showRules === 'ultimate'">
+            <div ref="rules" class="rulesContainer border rounded mx-auto mt-2 mb-5 bg-white"
+                 v-show="showRules === 'ultimate'">
                 <h4 class="mt-3">{{ $t('homePage.ultimateTicTacToeRulesTitle') }}</h4>
                 <div class="description p-3"
                      :class="{'changeToRtl': $i18n.locale ==='fa'}"
