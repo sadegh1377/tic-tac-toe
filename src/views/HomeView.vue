@@ -49,14 +49,14 @@
                     </div>
                 </div>
             </div>
-            <div ref="rules" class="container border rounded mt-2 mb-5 bg-white" v-show="showRules === 'classic'">
+            <div ref="rules" class="rulesContainer border rounded mx-auto mt-2 mb-5 bg-white" v-show="showRules === 'classic'">
                 <h4 class="mt-3">{{ $t('homePage.ticTacToeRulesTitle') }}</h4>
                 <div class="description p-3"
                      :class="{'changeToRtl': $i18n.locale ==='fa'}"
                      v-html="$t('homePage.ticTacToeRules')">
                 </div>
             </div>
-            <div ref="rules" class="container border rounded mt-2 mb-5 bg-white" v-show="showRules === 'ultimate'">
+            <div ref="rules" class="rulesContainer border rounded mx-auto mt-2 mb-5 bg-white" v-show="showRules === 'ultimate'">
                 <h4 class="mt-3">{{ $t('homePage.ultimateTicTacToeRulesTitle') }}</h4>
                 <div class="description p-3"
                      :class="{'changeToRtl': $i18n.locale ==='fa'}"
@@ -103,6 +103,10 @@ export default {
 
 .increaseHeight {
     height: 1200px !important;
+}
+
+.rulesContainer {
+    width: 1140px;
 }
 
 .cardImg {
