@@ -85,6 +85,7 @@ export default {
 
 <style scoped>
 @import "../assets/style.css";
+
 .defaultBackground {
     background-color: white;
 }
@@ -92,6 +93,9 @@ export default {
 .playersTurn {
     background-color: #25cb20 !important;
     color: #f9f9f9;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .changeDirBtn {
