@@ -373,11 +373,13 @@ export default {
 }
 
 .tableNotEmptyMessage {
+    position: absolute;
     margin-top: 10px;
     background-color: #ffeeb9;
     color: #856404;
     padding: 5px;
-    max-width: 250px;
+    width: 250px;
+    z-index: 10000;
 }
 
 .list-group-item:hover {
@@ -426,7 +428,8 @@ export default {
 
 .opponent {
     font-size: 40px;
-
 }
+
+
 
 </style>
