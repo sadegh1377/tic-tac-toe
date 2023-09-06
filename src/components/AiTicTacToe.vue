@@ -1,5 +1,17 @@
 <template>
     <div id="aiTicTacToe" class="mx-auto my-5 rounded" dir="ltr">
+        <div class="changeDifficulty">
+            <ul class="list-group">
+                <li class="list-group-item" v-for="(difficulty,index) in difficulties" :key="index"
+                    :class="{'active': difficulty === selectedDifficulty}"
+                    @click="changeDifficulty(difficulty)">
+                    {{ difficulty }}
+                </li>
+            </ul>
+            <p class="tableNotEmptyMessage rounded" v-if="this.tableNotEmptyMessage">{{
+                tableNotEmptyMessage
+                }}</p>
+        </div>
         <div class="mainContainer mx-auto mt-5 row">
             <!--   first row   -->
             <div class="cellContainer border" @click="addMark(0,0)">
@@ -89,6 +101,9 @@ export default {
     mixins: [],
     data() {
         return {
+            difficulties: ['Easy', 'Medium'],
+            selectedDifficulty: 'Easy',
+            tableNotEmptyMessage: false,
             isAiTurn: false,
             timeoutID: null,
             playerTurn: 0,
@@ -129,7 +144,12 @@ export default {
                 }
             }
             //     Ai move
-            let aiChoice = await this.getBestMove()
+            let aiChoice;
+            if (this.selectedDifficulty === 'Medium') {
+                aiChoice = await this.getBestMove()
+            } else {
+                aiChoice = await this.getRandomMove()
+            }
             console.log(aiChoice)
             this.timeoutID = setTimeout(() => {
                 this.table[aiChoice.bestI].splice(aiChoice.bestJ, 1, "X")
@@ -237,6 +257,22 @@ export default {
                     return null
             }
         },
+        getRandomMove() {
+            let bestI = Math.floor(Math.random() * 3);
+            let bestJ = Math.floor(Math.random() * 3);
+            for (let i = 0; i < this.table.length; i++) {
+                for (let j = 0; j < this.table.length; j++) {
+                    if (this.table[bestI][bestJ] === "") {
+                        return {bestI: bestI, bestJ: bestJ};
+                    } else {
+                        bestI = Math.floor(Math.random() * 3);
+                        bestJ = Math.floor(Math.random() * 3);
+                        i = 0
+                        j = 0
+                    }
+                }
+            }
+        },
         detectDraw() {
             for (let i = 0; i < this.table.length; i++) {
                 for (let j = 0; j < this.table.length; j++) {
@@ -288,6 +324,24 @@ export default {
             this.playerTurn = 0
             this.winner = null
 
+        },
+        changeDifficulty(difficulty) {
+            let tableNotEmpty = false
+            for (let i = 0; i < this.table.length; i++) {
+                for (let j = 0; j < this.table.length; j++) {
+                    if (this.table[i][j] !== "") {
+                        tableNotEmpty = true
+                        this.tableNotEmptyMessage = 'Finish the game or restart to change difficulty'
+                        setTimeout(() => {
+                            this.tableNotEmptyMessage = ''
+                        }, 3000)
+                        break
+                    }
+                }
+            }
+            if (tableNotEmpty === false) {
+                this.selectedDifficulty = difficulty
+            }
         }
     }
 }
@@ -302,6 +356,32 @@ export default {
     left: 0;
     width: 80vw;
     background-color: rgb(207, 207, 207, .4);
+}
+
+.changeDifficulty {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.list-group {
+    width: 93px !important;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.tableNotEmptyMessage {
+    margin-top: 10px;
+    background-color: #ffeeb9;
+    color: #856404;
+    padding: 5px;
+    max-width: 250px;
+}
+
+.list-group-item:hover {
+    opacity: 0.88;
 }
 
 .mainContainer {
