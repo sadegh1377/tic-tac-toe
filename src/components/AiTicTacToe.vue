@@ -2,15 +2,19 @@
     <div id="aiTicTacToe" class="mx-auto my-5 rounded" dir="ltr">
         <div class="changeDifficulty">
             <ul class="list-group">
-                <li class="list-group-item" v-for="(difficulty,index) in difficulties" :key="index"
-                    :class="{'active': difficulty === selectedDifficulty}"
-                    @click="changeDifficulty(difficulty)">
-                    {{ difficulty }}
+                <li class="list-group-item"
+                    :class="{'active': selectedDifficulty === 'Easy' || selectedDifficulty === 'آسون' }"
+                    @click="changeDifficulty('Easy')">
+                    {{ $i18n.t('aiTicTacToe.easyMode') }}
+                </li>
+                <li class="list-group-item"
+                    :class="{'active': selectedDifficulty === 'Medium'|| selectedDifficulty === 'متوسط'}"
+                    @click="changeDifficulty('Medium')">
+                    {{ $i18n.t('aiTicTacToe.mediumMode') }}
                 </li>
             </ul>
-            <p class="tableNotEmptyMessage rounded" v-if="this.tableNotEmptyMessage">{{
-                tableNotEmptyMessage
-                }}</p>
+            <p class="tableNotEmptyMessage rounded" v-if="this.tableNotEmpty">
+                {{ $i18n.t('aiTicTacToe.tableNotEmptyMessage') }}</p>
         </div>
         <div class="mainContainer mx-auto mt-5 row">
             <!--   first row   -->
@@ -101,9 +105,8 @@ export default {
     mixins: [],
     data() {
         return {
-            difficulties: ['Easy', 'Medium'],
-            selectedDifficulty: 'Easy',
-            tableNotEmptyMessage: false,
+            selectedDifficulty: i18n.t('aiTicTacToe.easyMode'),
+            tableNotEmpty: false,
             isAiTurn: false,
             timeoutID: null,
             playerTurn: 0,
@@ -331,9 +334,9 @@ export default {
                 for (let j = 0; j < this.table.length; j++) {
                     if (this.table[i][j] !== "") {
                         tableNotEmpty = true
-                        this.tableNotEmptyMessage = 'Finish the game or restart to change difficulty'
+                        this.tableNotEmpty = true
                         setTimeout(() => {
-                            this.tableNotEmptyMessage = ''
+                            this.tableNotEmpty = false
                         }, 3000)
                         break
                     }
@@ -429,7 +432,6 @@ export default {
 .opponent {
     font-size: 40px;
 }
-
 
 
 </style>

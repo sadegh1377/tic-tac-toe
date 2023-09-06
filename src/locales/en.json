@@ -36,5 +36,10 @@
     "playerTwoWon": "Two",
     "cpu": "CPU",
     "tie": "Draw"
+  },
+  "aiTicTacToe": {
+    "easyMode": "Easy",
+    "mediumMode": "Medium",
+    "tableNotEmptyMessage": "Finish the game or restart to change difficulty"
   }
 }

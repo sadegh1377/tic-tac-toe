@@ -36,5 +36,10 @@
     "playerTwoWon": "دو",
     "cpu": "کامپیوتر",
     "tie": "مساوی"
+  },
+  "aiTicTacToe": {
+    "easyMode": "آسون",
+    "mediumMode": "متوسط",
+    "tableNotEmptyMessage": "برای عوض کردن سطح سختی، بازی را تمام کنید یا شروع دوباره را بزنید"
   }
 }
